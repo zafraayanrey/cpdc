@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Body from "./Body";
+import Header from "./header/Header";
+import Footer from "./Footer";
+import styled from "styled-components";
+import "./index.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const Wrapper = styled.div`
+    display: grid;
+    /* grid-template-rows: 1fr 1fr 10fr 1fr; */
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 10fr 1fr;
+    width: 90vw;
+    height: 100vh;
+    text-align: center;
+    background: var(--fifty);
+    margin: auto;
+    padding-top: 25px;
+  `;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Wrapper>
+      <Header />
+      <Body />
+      <Footer />
+    </Wrapper>
+  );
 }
 
-export default App
+export default App;
