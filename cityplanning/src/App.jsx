@@ -7,21 +7,18 @@ import "./index.css";
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1.5fr 9.5fr 1fr;
   width: 100vw;
-  height: auto;
+  height: 100vh;
   text-align: center;
-  background: var(--fifty);
+  background: var(--one-hundred);
   margin: auto;
-  padding-top: 25px;
 `;
 
 function App() {
   return (
     <Wrapper>
       <Header />
-      <Body />
-      <Footer />
     </Wrapper>
   );
 }
