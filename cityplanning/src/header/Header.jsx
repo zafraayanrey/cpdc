@@ -16,7 +16,7 @@ const HeaderContainer = styled.div`
   height: auto;
   width: 100%;
   padding: 10px;
-  position: fixed;
+  /* position: fixed; */
 `;
 
 const LogoContainer = styled.div`
@@ -33,25 +33,6 @@ const HeaderText = styled.div`
   padding: 10px 0px 10px 5px;
   text-align: left;
   font-weight: 400;
-`;
-
-const MenuContainer = styled.div`
-  display: grid;
-  place-content: center;
-  grid-template-columns: repeat(6, 1fr);
-`;
-
-const MenuItem = styled.div`
-  background-color: var(--one-hundred);
-  padding: 10px;
-  font-weight: bold;
-  position: relative;
-
-  &:hover {
-    background-color: var(--four-hundred);
-    cursor: pointer;
-    color: var(--seven-hundred);
-  }
 `;
 
 const DropDownContainer = styled.div`
@@ -81,21 +62,6 @@ const DropDown = styled.div`
 `;
 
 function Header() {
-  const [isHidden, setIsHidden] = useState("visible");
-  const [subMenu, setSubMenu] = useState();
-
-  function handleDropdown(data) {
-    if (data > 0) {
-      setSubMenu(data);
-      return (
-        <DropDownContainer>
-          <DropDown>Hello, zaf</DropDown>
-          <DropDown>Hello, zaf</DropDown>
-        </DropDownContainer>
-      );
-    }
-  }
-
   return (
     <HeaderContainer>
       <LogoContainer>
@@ -107,26 +73,7 @@ function Header() {
         <span>Province of Cebu</span>
         <span>City of Talisay</span>
       </HeaderText>
-
-      <MenuContainer>
-        {menus.map((el, i) => (
-          <MenuItem key={i} onMouseOver={() => handleDropdown(el.subMenu)}>
-            <span>{el.menu}</span>
-            {el.subMenu.length > 0 && handleDropdown()}
-          </MenuItem>
-        ))}
-
-        {/* <MenuItem
-          onMouseOver={() => setIsHidden("visible")}
-          onMouseLeave={() => setIsHidden("hidden")}
-        >
-          <span>ABOUT</span>
-          <DropDownContainer visibility={isHidden}>
-            <DropDown>CITIZENS CHARTER</DropDown>
-            <DropDown>SECTIONS</DropDown>
-          </DropDownContainer>
-        </MenuItem> */}
-      </MenuContainer>
+      <Menu />
     </HeaderContainer>
   );
 }

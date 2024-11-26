@@ -19,6 +19,7 @@ function App() {
   return (
     <Wrapper>
       <Header />
+      <Body />
     </Wrapper>
   );
 }
