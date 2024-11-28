@@ -1,33 +1,28 @@
 import React, { useState } from "react";
 import "../index.css";
-import { menus } from "../utils/menus";
+import { navMenu } from "../utils/navMenu";
 import styled from "styled-components";
 
-const MenuContainer = styled.div`
+const MenuContainer = styled.ul`
   display: grid;
-  height: 50px;
+  height: auto;
   /* place-content: center; */
-  grid-template-columns: repeat(${menus.length}, 1fr);
+  grid-template-columns: repeat(${navMenu.length}, 1fr);
   font-size: 14px;
 `;
 
 const MenuItem = styled.li`
   list-style-type: none;
   place-content: center;
-  height: 100%;
+  height: auto;
   font-weight: 500;
-
-  border: solid 1px black;
+  /* border: solid 1px black; */
   position: relative;
+  cursor: pointer;
 
   &:hover {
-    cursor: pointer;
     background-color: var(--four-hundred);
   }
-`;
-
-const Span = styled.span`
-  position: relative;
 `;
 
 const SubItemContainer = styled.div`
@@ -35,43 +30,78 @@ const SubItemContainer = styled.div`
 `;
 
 const SubItem = styled.div`
-  text-align: center;
-  position: absolute;
-  font-size: 14px;
-  width: 170px;
+  visibility: "hidden";
+  width: 100px;
   height: 25px;
   background-color: var(--two-hundred);
-  border: solid 1px black;
-  top: 0px;
-  left: 0px;
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+
+  /* Prevent hover from affecting MenuItem */
+  &:hover {
+    background-color: var(--four-hundred);
+  }
 `;
 
-function handleMouseOver(menuId) {
-  const subMenuItem = [];
-  const hoveredMenu = menus.filter((el) => el.id === menuId);
-  subMenuItem.push(hoveredMenu);
+const DropDown = styled.div`
+  width: 100px;
+  height: 25px;
+  background-color: var(--two-hundred);
 
-  return "zaf";
-}
+  /* Prevent hover from affecting MenuItem */
+  &:hover {
+    background-color: var(--four-hundred);
+  }
+`;
 
 function Menu() {
+  const [dropDown, setDropdown] = useState([]);
+  const [menuId, setMenuId] = useState([]);
+
+  function handleMouseOver(id) {
+    setMenuId(id);
+
+    //getting the length of dropdown array
+    const dropwDownObject = navMenu.filter((el) => el.id === id);
+
+    //Extracting the dropdown items
+    const subMenuItem = [];
+    const hoveredMenu = navMenu
+      .filter((el) => el.id === id)
+      .map((el) => el.dropdown.map((el) => subMenuItem.push(el.title)));
+
+    setDropdown(subMenuItem);
+  }
+
+  function handleDropdownClick(e) {
+    e.stopPropagation();
+    alert("sub");
+  }
+
   return (
-    // <MenuContainer>
-    //   {menus.map((el, i) => (
-    //     <>
-    //       <MenuItem key={i} onMouseOver={() => handleMouseOver(el.id)}>
-    //         <Span>{el.value}</Span>
-    //       </MenuItem>
-    //     </>
-    //   ))}
-    // </MenuContainer>
-    <ul>
-      <MenuContainer>
-        {menus.map((el) => (
-          <MenuItem>{el.value}</MenuItem>
-        ))}
-      </MenuContainer>
-    </ul>
+    <MenuContainer>
+      {navMenu.map((el, i) => (
+        <>
+          <MenuItem
+            key={i}
+            onMouseOver={() => handleMouseOver(el.id)}
+            onClick={() => alert("main")}
+          >
+            {el.title}
+            {el.id === menuId && (
+              <SubItem>
+                {dropDown.map((el, i) => (
+                  <DropDown key={i} onClick={handleDropdownClick}>
+                    {el}
+                  </DropDown>
+                ))}
+              </SubItem>
+            )}
+          </MenuItem>
+        </>
+      ))}
+    </MenuContainer>
   );
 }
 

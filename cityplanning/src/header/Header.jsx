@@ -6,7 +6,7 @@ import "../index.css";
 import Slider from "./Slider";
 import talisayLogo from "../images/talisayLogo.png";
 import cdpcLogo from "../images/cpdcLogo.png";
-import { menus } from "../utils/menus.jsx";
+import { navMenu } from "../utils/navMenu.jsx";
 
 const HeaderContainer = styled.div`
   background-color: var(--two-hundred);
