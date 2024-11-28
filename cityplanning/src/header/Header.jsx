@@ -9,70 +9,40 @@ import cdpcLogo from "../images/cpdcLogo.png";
 import { menus } from "../utils/menus.jsx";
 
 const HeaderContainer = styled.div`
-  grid-column: 1/13;
+  background-color: var(--two-hundred);
+  width: 100vw;
   display: grid;
-  grid-template-columns: 1.5fr 2fr 8.5fr;
-  /* grid-template-rows: 1fr 1fr; */
-  height: auto;
-  width: 100%;
-  padding: 10px;
-  /* position: fixed; */
+  grid-template-columns: 1fr 2.5fr 1fr 8fr;
 `;
 
 const LogoContainer = styled.div`
+  height: auto;
   text-align: right;
+  place-content: center;
 `;
 
 const Logo = styled.img`
-  width: 75px;
+  width: 40px;
   place-content: center;
 `;
 
 const HeaderText = styled.div`
+  grid-column: 2/4;
+  text-align: left !important;
   display: grid;
-  padding: 10px 0px 10px 5px;
-  text-align: left;
   font-weight: 400;
-`;
-
-const DropDownContainer = styled.div`
-  height: auto;
-  display: grid;
-  width: auto;
-  grid-template-rows: repeat(1fr, 3);
-  position: absolute;
-  top: 40px;
-  left: 0px;
-  visibility: ${(props) => props.visibility};
-  z-index: 1;
-`;
-
-const DropDown = styled.div`
-  background-color: var(--two-hundred);
-  color: var(--nine-hundred-fifty);
-  width: 250px;
-  height: auto;
-  padding: 10px;
-
-  &:hover {
-    background-color: var(--four-hundred);
-    cursor: pointer;
-    color: var(--seven-hundred);
-  }
+  align-items: center; //vertical alignment
+  padding-left: 10px;
 `;
 
 function Header() {
   return (
     <HeaderContainer>
       <LogoContainer>
-        <Logo src={talisayLogo}></Logo>
-        <Logo src={cdpcLogo}></Logo>
+        <Logo src={talisayLogo} />
+        <Logo src={cdpcLogo} />
       </LogoContainer>
-      <HeaderText>
-        <span>Republic of the Philippines</span>
-        <span>Province of Cebu</span>
-        <span>City of Talisay</span>
-      </HeaderText>
+      <HeaderText>City of Talisay | Province of Cebu</HeaderText>
       <Menu />
     </HeaderContainer>
   );

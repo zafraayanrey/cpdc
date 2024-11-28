@@ -1,102 +1,77 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import "../index.css";
 import { menus } from "../utils/menus";
-import Body from "../Body";
-import { useDispatch, useSelector } from "react-redux";
-import { home } from "../slice/menuSlice";
+import styled from "styled-components";
 
 const MenuContainer = styled.div`
   display: grid;
-  place-content: center;
-  grid-template-columns: repeat(6, 1fr);
+  height: 50px;
+  /* place-content: center; */
+  grid-template-columns: repeat(${menus.length}, 1fr);
+  font-size: 14px;
 `;
 
-const MenuItem = styled.div`
-  background-color: var(--one-hundred);
-  padding: 10px;
-  font-weight: bold;
+const MenuItem = styled.li`
+  list-style-type: none;
+  place-content: center;
+  height: 100%;
+  font-weight: 500;
+
+  border: solid 1px black;
   position: relative;
 
   &:hover {
-    background-color: var(--four-hundred);
     cursor: pointer;
-    color: var(--seven-hundred);
+    background-color: var(--four-hundred);
   }
 `;
 
-const DropDownContainer = styled.div`
+const Span = styled.span`
+  position: relative;
+`;
+
+const SubItemContainer = styled.div`
   height: auto;
-  display: grid;
-  width: auto;
-  grid-template-rows: repeat(1fr, 3);
+`;
+
+const SubItem = styled.div`
+  text-align: center;
   position: absolute;
-  top: 40px;
-  left: 0px;
-  visibility: ${(props) => props.visibility};
-  z-index: 1;
-`;
-
-const DropDown = styled.div`
+  font-size: 14px;
+  width: 170px;
+  height: 25px;
   background-color: var(--two-hundred);
-  color: var(--nine-hundred-fifty);
-  width: 250px;
-  height: auto;
-  padding: 10px;
-
-  &:hover {
-    background-color: var(--four-hundred);
-    cursor: pointer;
-    color: var(--seven-hundred);
-  }
+  border: solid 1px black;
+  top: 0px;
+  left: 0px;
 `;
+
+function handleMouseOver(menuId) {
+  const subMenuItem = [];
+  const hoveredMenu = menus.filter((el) => el.id === menuId);
+  subMenuItem.push(hoveredMenu);
+
+  return "zaf";
+}
 
 function Menu() {
-  const [isHidden, setIsHidden] = useState("hidden");
-  const [subMenu, setSubMenu] = useState([]);
-  const [menuId, setMenuId] = useState();
-  const dispatch = useDispatch();
-
-  function handleDropdown(id, data) {
-    setIsHidden("visible");
-    setSubMenu(data);
-    setMenuId(id);
-  }
-
-  function subItem() {
-    return (
-      isHidden === "visible" && (
-        <DropDownContainer>
-          {subMenu.map((el, i) => (
-            <DropDown
-              visibility={isHidden}
-              onMouseLeave={() => setIsHidden("hidden")}
-              onClick={() => alert("gwapo ko")}
-              key={i}
-            >
-              {el}
-            </DropDown>
-          ))}
-        </DropDownContainer>
-      )
-    );
-  }
-
   return (
-    <>
+    // <MenuContainer>
+    //   {menus.map((el, i) => (
+    //     <>
+    //       <MenuItem key={i} onMouseOver={() => handleMouseOver(el.id)}>
+    //         <Span>{el.value}</Span>
+    //       </MenuItem>
+    //     </>
+    //   ))}
+    // </MenuContainer>
+    <ul>
       <MenuContainer>
-        {menus.map((el, i) => (
-          <MenuItem
-            key={i}
-            onMouseOver={() => handleDropdown(el.id, el.subMenu)}
-            onClick={() => dispatch(home(el.id))}
-          >
-            <span>{el.menu}</span>
-            {el.id === menuId && subItem()}
-          </MenuItem>
+        {menus.map((el) => (
+          <MenuItem>{el.value}</MenuItem>
         ))}
       </MenuContainer>
-    </>
+    </ul>
   );
 }
 

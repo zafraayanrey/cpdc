@@ -1,16 +1,30 @@
 export const menus = [
-  { id: 1, menu: "HOME", subMenu: [] },
+  { id: 1, value: "HOME", subMenu: [] },
   {
     id: 2,
-    menu: "ABOUT US",
-    subMenu: ["CITIZENS CHARTER", "SECTIONS"],
+    value: "ABOUT US",
+    subMenu: [
+      { id: 1, value: "About", subMenu: [] },
+      { id: 2, value: "About 1", subMenu: [] },
+    ],
   },
-  { id: 3, menu: "PLANS AND REPORT", subMenu: ["Test", "Test1"] },
+  {
+    id: 3,
+    value: "PLANS AND REPORT",
+    subMenu: [
+      { id: 1, value: "Plans", subMenu: [] },
+      { id: 2, value: "Plans 1", subMenu: [] },
+    ],
+  },
   {
     id: 4,
-    menu: "PROJECTS",
-    subMenu: ["Sample", "Sample 1", "Sample 2", "Sample 3"],
+    value: "PROJECTS",
+    subMenu: [
+      { id: 1, value: "Projects", subMenu: [] },
+      { id: 2, value: "Projects 1", subMenu: [] },
+    ],
   },
-  { id: 5, menu: "SERVICES", subMenu: [] },
-  { id: 6, menu: "CONTACT US", subMenu: [] },
+  { id: 5, value: "SERVICES", subMenu: [] },
+  { id: 6, value: "GALLERY", subMenu: [] },
+  // { id: 7, value: "CONTACT US", subMenu: [] },
 ];
