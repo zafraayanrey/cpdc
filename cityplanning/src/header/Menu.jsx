@@ -64,9 +64,6 @@ function Menu() {
   function handleMouseOver(id) {
     setMenuId(id);
 
-    //getting the length of dropdown array
-    const dropwDownObject = navMenu.filter((el) => el.id === id);
-
     //Extracting the dropdown items
     const subMenuItem = [];
     const hoveredMenu = navMenu
@@ -75,10 +72,16 @@ function Menu() {
 
     setDropdown(subMenuItem);
     setIsHidden("visible");
+    console.log(hoveredMenu);
   }
 
-  function handleDropdownClick(e) {
-    e.stopPropagation();
+  function handleDropdownClick(paramPath) {
+    console.log(paramPath);
+  }
+
+  function handleNavClick() {
+    // e.stopPropagation;
+    alert("main");
   }
 
   function handleMouseLeave() {
@@ -93,7 +96,7 @@ function Menu() {
             key={i}
             onMouseOver={() => handleMouseOver(el.id)}
             onMouseLeave={() => setIsHidden("hidden")}
-            onClick={() => alert(el.path)}
+            onClick={() => handleNavClick(el.path)}
           >
             {el.title}
             {el.id === menuId && el.dropdown.length > 0 && (
@@ -101,8 +104,10 @@ function Menu() {
                 {dropDown.map((el, i) => (
                   <DropDown
                     key={i}
-                    // onMouseOver={handleDropdownHover}
-                    onClick={() => handleDropdownClick(el.id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDropdownClick(el);
+                    }}
                   >
                     {el}
                   </DropDown>

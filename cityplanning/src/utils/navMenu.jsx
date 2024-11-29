@@ -37,7 +37,7 @@ export const navMenu = [
     id: 6,
     title: "GALLERY",
     path: "/gallery",
-    dropdown: [{ id: 1, title: "Gallery", path: "", dropdown: [] }],
+    dropdown: [],
   },
   // { id: 7, title: "CONTACT US", path: '' },
 ];
