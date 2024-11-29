@@ -30,7 +30,7 @@ const SubItemContainer = styled.div`
 `;
 
 const SubItem = styled.div`
-  visibility: "hidden";
+  visibility: ${(props) => props.visibility};
   width: 100px;
   height: 25px;
   background-color: var(--two-hundred);
@@ -59,7 +59,7 @@ const DropDown = styled.div`
 function Menu() {
   const [dropDown, setDropdown] = useState([]);
   const [menuId, setMenuId] = useState([]);
-  const [isHidden, setIsHidden] = useState(true);
+  const [isHidden, setIsHidden] = useState("");
 
   function handleMouseOver(id) {
     setMenuId(id);
@@ -74,11 +74,15 @@ function Menu() {
       .map((el) => el.dropdown.map((el) => subMenuItem.push(el.title)));
 
     setDropdown(subMenuItem);
+    setIsHidden("visible");
   }
 
   function handleDropdownClick(e) {
     e.stopPropagation();
-    alert("sub");
+  }
+
+  function handleMouseLeave() {
+    setIsHidden("hidden");
   }
 
   return (
@@ -88,24 +92,23 @@ function Menu() {
           <MenuItem
             key={i}
             onMouseOver={() => handleMouseOver(el.id)}
-            onClick={() => alert("main")}
+            onMouseLeave={() => setIsHidden("hidden")}
+            onClick={() => alert(el.path)}
           >
             {el.title}
             {el.id === menuId && el.dropdown.length > 0 && (
-              <SubItem>
+              <SubItem visibility={isHidden} onMouseLeave={handleMouseLeave}>
                 {dropDown.map((el, i) => (
                   <DropDown
                     key={i}
-                    onMouseLeave={isHidden === true && "hidden"}
-                    onMouseOver={isHidden === true && "hidden"}
-                    onClick={handleDropdownClick}
+                    // onMouseOver={handleDropdownHover}
+                    onClick={() => handleDropdownClick(el.id)}
                   >
                     {el}
                   </DropDown>
                 ))}
               </SubItem>
             )}
-            {/* {el.dropdown.length} */}
           </MenuItem>
         </>
       ))}
