@@ -3,7 +3,7 @@ export const navMenu = [
     id: 1,
     title: "HOME",
     path: "",
-    dropdown: [],
+    dropdown: [{ id: 1, title: "Home 1", path: "", dropdown: [] }],
   },
   {
     id: 2,
