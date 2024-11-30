@@ -4,13 +4,13 @@ import Footer from "./Footer";
 import styled from "styled-components";
 import "./index.css";
 import Menu from "./header/Menu";
+import Slider from "./header/Slider";
 
 const Wrapper = styled.div`
   display: grid;
-  /* grid-template-columns: repeat(12, 1fr); */
-  grid-template-rows: 0.5fr 10fr 1fr;
+  grid-template-rows: 0.5fr 3fr 7fr 1fr;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   text-align: center;
   background: var(--one-hundred);
   margin: auto;
@@ -19,9 +19,8 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
-      {/* <Header />
-      <Menu /> */}
       <Header />
+      <Slider />
       <Body />
       <Footer />
     </Wrapper>

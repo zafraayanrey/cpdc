@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import "../index.css";
 import { navMenu } from "../utils/navMenu";
 import styled from "styled-components";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 const MenuContainer = styled.ul`
   display: grid;
   height: auto;
-  /* place-content: center; */
   grid-template-columns: repeat(${navMenu.length}, 1fr);
   font-size: 14px;
 `;
@@ -16,17 +16,12 @@ const MenuItem = styled.li`
   place-content: center;
   height: auto;
   font-weight: 500;
-  /* border: solid 1px black; */
   position: relative;
   cursor: pointer;
 
   &:hover {
     background-color: var(--four-hundred);
   }
-`;
-
-const SubItemContainer = styled.div`
-  height: auto;
 `;
 
 const SubItem = styled.div`
@@ -37,8 +32,8 @@ const SubItem = styled.div`
   position: absolute;
   top: 100%;
   bottom: 0;
+  z-index: 99;
 
-  /* Prevent hover from affecting MenuItem */
   &:hover {
     background-color: var(--four-hundred);
   }
@@ -46,14 +41,19 @@ const SubItem = styled.div`
 
 const DropDown = styled.div`
   width: 200px;
-  height: 40px;
+  height: auto;
   background-color: var(--two-hundred);
   place-content: center;
+  padding: 10px;
 
-  /* Prevent hover from affecting MenuItem */
   &:hover {
     background-color: var(--four-hundred);
   }
+`;
+
+const DropdownIcon = styled.span`
+  margin-left: 5px;
+  text-align: center;
 `;
 
 function Menu() {
@@ -102,6 +102,11 @@ function Menu() {
             onClick={() => handleNavClick(el.path)}
           >
             {el.title}
+            {el.dropdown.length > 0 && (
+              <DropdownIcon>
+                <IoMdArrowDropdown />
+              </DropdownIcon>
+            )}
             {el.id === menuId && el.dropdown.length > 0 && (
               <SubItem visibility={isHidden} onMouseLeave={handleMouseLeave}>
                 {dropDown.map((el, i) => (
@@ -117,7 +122,6 @@ function Menu() {
                 ))}
               </SubItem>
             )}
-            {/* {dropDown.map((el) => el.title)} */}
           </MenuItem>
         </>
       ))}
