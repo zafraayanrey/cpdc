@@ -68,20 +68,23 @@ function Menu() {
     const subMenuItem = [];
     const hoveredMenu = navMenu
       .filter((el) => el.id === id)
-      .map((el) => el.dropdown.map((el) => subMenuItem.push(el.title)));
+      .map((el) =>
+        el.dropdown.map((el) =>
+          subMenuItem.push({ title: el.title, path: el.path })
+        )
+      );
 
     setDropdown(subMenuItem);
     setIsHidden("visible");
-    console.log(hoveredMenu);
   }
 
   function handleDropdownClick(paramPath) {
-    console.log(paramPath);
+    alert(paramPath);
   }
 
-  function handleNavClick() {
+  function handleNavClick(navPath) {
     // e.stopPropagation;
-    alert("main");
+    alert(navPath);
   }
 
   function handleMouseLeave() {
@@ -106,14 +109,15 @@ function Menu() {
                     key={i}
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleDropdownClick(el);
+                      handleDropdownClick(el.path);
                     }}
                   >
-                    {el}
+                    {el.title}
                   </DropDown>
                 ))}
               </SubItem>
             )}
+            {/* {dropDown.map((el) => el.title)} */}
           </MenuItem>
         </>
       ))}

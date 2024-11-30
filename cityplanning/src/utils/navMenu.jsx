@@ -10,9 +10,9 @@ export const navMenu = [
     title: "ABOUT US",
     path: "/about-us",
     dropdown: [
-      { id: 1, title: "About 1", path: "about 1", dropdown: [] },
-      { id: 2, title: "About 2", path: "about 2", dropdown: [] },
-      { id: 3, title: "About 3", path: "about 3", dropdown: [] },
+      { id: 1, title: "About Sub 1", path: "about 1", dropdown: [] },
+      { id: 2, title: "About Sub 2", path: "about 2", dropdown: [] },
+      { id: 3, title: "About Sub 3", path: "about 3", dropdown: [] },
     ],
   },
   {
