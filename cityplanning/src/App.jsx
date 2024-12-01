@@ -5,6 +5,7 @@ import styled from "styled-components";
 import "./index.css";
 import Menu from "./header/Menu";
 import Slider from "./header/Slider";
+import Carousel from "./header/Carousel";
 
 const Wrapper = styled.div`
   display: grid;
