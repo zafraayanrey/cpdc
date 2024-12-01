@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { GrNext, GrPrevious } from "react-icons/gr";
 
 const SliderWrapper = styled.div`
-  height: 400px;
+  height: 500px;
   width: 100%;
   margin: auto;
   position: relative;
