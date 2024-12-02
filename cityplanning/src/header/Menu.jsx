@@ -3,12 +3,18 @@ import "../index.css";
 import { navMenu } from "../utils/navMenu";
 import styled from "styled-components";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { Link, NavLink } from "react-router";
 
 const MenuContainer = styled.ul`
   display: grid;
   height: auto;
   grid-template-columns: repeat(${navMenu.length}, 1fr);
   font-size: 14px;
+
+  a {
+    text-decoration: none;
+    color: var(--nine-hundred-fifty);
+  }
 `;
 
 const MenuItem = styled.li`
@@ -18,6 +24,13 @@ const MenuItem = styled.li`
   font-weight: 500;
   position: relative;
   cursor: pointer;
+
+  div {
+    height: 100%;
+    width: 100%;
+    place-content: center;
+    /* background-color: orange; */
+  }
 
   &:hover {
     background-color: var(--four-hundred);
@@ -41,10 +54,11 @@ const SubItem = styled.div`
 
 const DropDown = styled.div`
   width: 200px;
-  height: auto;
+  height: 100%;
   background-color: var(--two-hundred);
   place-content: center;
   padding: 10px;
+  text-decoration: none;
 
   &:hover {
     background-color: var(--four-hundred);
@@ -99,14 +113,19 @@ function Menu() {
             key={i}
             onMouseOver={() => handleMouseOver(el.id)}
             onMouseLeave={() => setIsHidden("hidden")}
-            onClick={() => handleNavClick(el.path)}
+            // onClick={() => handleNavClick(el.path)}
           >
-            {el.title}
-            {el.dropdown.length > 0 && (
-              <DropdownIcon>
-                <IoMdArrowDropdown />
-              </DropdownIcon>
-            )}
+            <NavLink to={el.path}>
+              <div>
+                {el.title}
+                {el.dropdown.length > 0 && (
+                  <DropdownIcon>
+                    <IoMdArrowDropdown />
+                  </DropdownIcon>
+                )}
+              </div>
+            </NavLink>
+
             {el.id === menuId && el.dropdown.length > 0 && (
               <SubItem visibility={isHidden} onMouseLeave={handleMouseLeave}>
                 {dropDown.map((el, i) => (
@@ -114,10 +133,12 @@ function Menu() {
                     key={i}
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleDropdownClick(el.path);
+                      // handleDropdownClick(el.path);
                     }}
                   >
-                    {el.title}
+                    <Link to={el.path}>
+                      <div>{el.title}</div>
+                    </Link>
                   </DropDown>
                 ))}
               </SubItem>

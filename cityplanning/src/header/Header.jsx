@@ -12,7 +12,7 @@ const HeaderContainer = styled.div`
   background-color: var(--two-hundred);
   width: 100vw;
   display: grid;
-  grid-template-columns: 1fr 2.5fr 1fr 8fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr 8fr 0.5fr;
 `;
 
 const LogoContainer = styled.div`

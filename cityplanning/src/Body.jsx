@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Menu from "./header/Menu";
 import { useSelector } from "react-redux";
+import PageNavigation from "./PageNavigation";
+import Slider from "./header/Slider";
 
 // const BodyContainer = styled.div`
 //   grid-column: 1/13;
@@ -20,16 +22,7 @@ function Body() {
 
   return (
     <>
-      <Testing
-        style={{
-          width: "150px",
-          height: "150px",
-          background: "orange",
-          color: "black",
-        }}
-      >
-        body
-      </Testing>
+      <PageNavigation />
     </>
   );
 }

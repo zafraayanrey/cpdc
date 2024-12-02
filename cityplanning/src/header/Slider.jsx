@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GrNext, GrPrevious } from "react-icons/gr";
 
@@ -77,13 +77,22 @@ function Slider() {
   function handlePrevious() {
     if (moveSlider < 1) return;
     setMoveSlider((prev) => (prev - 1) % imagePaths.length);
-    console.log(moveSlider);
   }
 
   function handleNext() {
+    if (moveSlider > imagePaths.length - 2) return;
     setMoveSlider((prev) => (prev + 1) % imagePaths.length);
-    console.log(moveSlider);
   }
+
+  // const [seconds, setSeconds] = useState(0);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setMoveSlider((prev) => (prev + 1) % imagePaths.length);
+  //   }, 3000);
+
+  //   return () => clearInterval(interval); // Cleanup the interval on component unmount
+  // }, []);
 
   return (
     <SliderWrapper>

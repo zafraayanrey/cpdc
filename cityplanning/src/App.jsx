@@ -6,6 +6,7 @@ import "./index.css";
 import Menu from "./header/Menu";
 import Slider from "./header/Slider";
 import Carousel from "./header/Carousel";
+import PageNavigation from "./PageNavigation";
 
 const Wrapper = styled.div`
   display: grid;
@@ -21,7 +22,6 @@ function App() {
   return (
     <Wrapper>
       <Header />
-      <Slider />
       <Body />
       <Footer />
     </Wrapper>
