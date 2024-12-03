@@ -9,10 +9,11 @@ import Carousel from "./header/Carousel";
 import PageNavigation from "./PageNavigation";
 
 const Wrapper = styled.div`
+  position: relative;
   display: grid;
-  grid-template-rows: 0.5fr 3fr 7fr 1fr;
-  width: 100vw;
-  height: 100dvh;
+  grid-template-rows: 0.1fr 3fr 0.5fr;
+  /* width: 100vw; */
+  height: 100vh;
   text-align: center;
   background: var(--one-hundred);
   margin: auto;

@@ -13,16 +13,16 @@ export const navMenu = [
       {
         id: 1,
         title: "Citizen's Charter",
-        path: "/citizenscharter",
+        path: "/citizencharter",
         dropdown: [],
       },
-      { id: 2, title: "Sections", path: "Sections", dropdown: [] },
+      { id: 2, title: "Sections", path: "/sections", dropdown: [] },
     ],
   },
   {
     id: 3,
     title: "PLANS AND REPORT",
-    path: "/plans-reports",
+    path: "/plansreports",
     dropdown: [],
   },
   {

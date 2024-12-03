@@ -7,6 +7,7 @@ import Slider from "./Slider";
 import talisayLogo from "../images/talisayLogo.png";
 import cdpcLogo from "../images/cpdcLogo.png";
 import { navMenu } from "../utils/navMenu.jsx";
+import { Link, NavLink } from "react-router";
 
 const HeaderContainer = styled.div`
   background-color: var(--two-hundred);
@@ -33,16 +34,25 @@ const HeaderText = styled.div`
   font-weight: 400;
   align-items: center; //vertical alignment
   padding-left: 10px;
+
+  a {
+    text-decoration: none;
+    color: var(--nine-hundred-fifty);
+  }
 `;
 
 function Header() {
   return (
     <HeaderContainer>
-      <LogoContainer>
-        <Logo src={talisayLogo} />
-        <Logo src={cdpcLogo} />
-      </LogoContainer>
-      <HeaderText>City of Talisay | Province of Cebu</HeaderText>
+      <NavLink to="/">
+        <LogoContainer>
+          <Logo src={talisayLogo} />
+          <Logo src={cdpcLogo} />
+        </LogoContainer>
+      </NavLink>
+      <HeaderText>
+        <NavLink to="/">City of Talisay | Province of Cebu</NavLink>
+      </HeaderText>
       <Menu />
     </HeaderContainer>
   );

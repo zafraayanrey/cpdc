@@ -1,7 +1,8 @@
 import React from "react";
+import { Heading } from "../styled-components/elements";
 
 function ContactUs() {
-  return <div>Contact Us</div>;
+  return <Heading>Contact Us</Heading>;
 }
 
 export default ContactUs;
