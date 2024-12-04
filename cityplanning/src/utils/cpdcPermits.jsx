@@ -1,9 +1,26 @@
 // In the City Planning and Development Coordinator's Office (CPDO) of a Local Government Unit (LGU) in the Philippines, several permits and clearances can be processed. These are typically related to land use, development, and compliance with urban planning regulations. Here's a list of the common permits that can be processed in the CPDO:
 
+import { SiVectorlogozone } from "react-icons/si";
+import { MdClearAll } from "react-icons/md";
+import { FaRegBuilding } from "react-icons/fa";
+import { CgPathDivide } from "react-icons/cg";
+import { FaConnectdevelop } from "react-icons/fa";
+import { LuTreePine } from "react-icons/lu";
+import { PiCertificateLight } from "react-icons/pi";
+import { FaSignOutAlt } from "react-icons/fa";
+import { MdFolderSpecial } from "react-icons/md";
+import { LiaCertificateSolid } from "react-icons/lia";
+import { GoProjectSymlink } from "react-icons/go";
+import { GiTrafficLightsGreen } from "react-icons/gi";
+import { FaLaptopHouse } from "react-icons/fa";
+import { MdOutlineTour } from "react-icons/md";
+
 export const cpdcPermits = [
   {
     id: 1,
+    icon: <SiVectorlogozone />,
     title: "Zoning Clearance",
+    path: "",
     description:
       "This is required before applying for building permits or business permits. A zoning clearance ensures that the proposed land use or construction complies with the city's zoning regulations, such as the designated area for residential, commercial, industrial, or mixed-use development.",
     requirements:
@@ -11,7 +28,9 @@ export const cpdcPermits = [
   },
   {
     id: 2,
+    icon: <MdClearAll />,
     title: "Locational Clearance",
+    path: "",
     description:
       "A locational clearance is typically required before any construction or business activity. It confirms that the proposed site for a building or development project adheres to the land-use policies, zoning ordinances, and the city's urban planning standards.",
     requirements:
@@ -19,7 +38,9 @@ export const cpdcPermits = [
   },
   {
     id: 3,
+    icon: <FaRegBuilding />,
     title: "Building Permit (Pre-Approval)",
+    path: "",
     description:
       "The CPDO processes pre-approval of building permits to ensure that a proposed structure follows the approved land use and zoning laws. The CPDO typically reviews the building’s design, land use, and other technical aspects to ensure compliance with city planning policies.",
     requirements:
@@ -27,7 +48,9 @@ export const cpdcPermits = [
   },
   {
     id: 4,
+    icon: <CgPathDivide />,
     title: "Subdivision and Condominium Development Permits",
+    path: "",
     description:
       "For developers or private entities planning large-scale subdivision or condominium projects, the CPDO processes and reviews applications for subdivision or condominium development permits. This ensures that the development plan is in line with zoning laws, the comprehensive land use plan (CLUP), and other regulatory requirements.",
     requirements:
@@ -35,7 +58,9 @@ export const cpdcPermits = [
   },
   {
     id: 5,
+    icon: <FaConnectdevelop />,
     title: "Clearance for Special Development Projects",
+    path: "",
     description:
       "The CPDO may issue clearances for specific types of development, such as projects that fall under special conditions (e.g., heritage sites, flood-prone areas, or near protected zones). The clearance ensures that special planning considerations are met.",
     requirements:
@@ -43,7 +68,9 @@ export const cpdcPermits = [
   },
   {
     id: 6,
+    icon: <LuTreePine />,
     title: "Tree Cutting and Earth-Ballasting Permits",
+    path: "",
     description:
       "If a development project involves the cutting of trees or earth works (e.g., excavation or land filling), the CPDO may process permits related to tree cutting or earth-balling. This ensures that the project complies with environmental standards and sustainability guidelines.",
     requirements:
@@ -51,7 +78,9 @@ export const cpdcPermits = [
   },
   {
     id: 7,
+    icon: <PiCertificateLight />,
     title: "Certificate of Final Development Completion",
+    path: "",
     description:
       "After a development project is completed, the CPDO may issue a Certificate of Final Development Completion to confirm that the project has complied with the approved plans and regulations. This certificate is often required for occupancy or business operations.",
     requirements:
@@ -59,7 +88,9 @@ export const cpdcPermits = [
   },
   {
     id: 8,
+    icon: <FaSignOutAlt />,
     title: "Signage/ Billboard Permit",
+    path: "",
     description:
       "If a business or establishment intends to install signage or billboards, the CPDO processes permits for these structures to ensure they are compliant with local zoning laws, aesthetics guidelines, and traffic safety regulations.",
     requirements:
@@ -67,7 +98,9 @@ export const cpdcPermits = [
   },
   {
     id: 9,
+    icon: <MdFolderSpecial />,
     title: "Special Use or Temporary Use Permits",
+    path: "",
     description:
       "This is required for events, temporary installations, or businesses that are not typically allowed under standard zoning laws. The CPDO reviews these permits on a case-by-case basis to ensure the temporary use complies with city regulations.",
     requirements:
@@ -75,7 +108,9 @@ export const cpdcPermits = [
   },
   {
     id: 10,
+    icon: <LiaCertificateSolid />,
     title: "Reclassification of Land Use Permit",
+    path: "",
     description:
       "If a property owner wishes to change the designated land use of a parcel of land (e.g., from agricultural to commercial or residential), the CPDO processes the application for reclassification. This involves a review of the proposal and its alignment with the city’s overall development plans.",
     requirements:
@@ -83,7 +118,9 @@ export const cpdcPermits = [
   },
   {
     id: 11,
+    icon: <GoProjectSymlink />,
     title: "Compliance Certificates for Development Projects",
+    path: "",
     description:
       "The CPDO may issue compliance certificates to developers to confirm that their projects adhere to the applicable planning laws, such as zoning laws, CLUP, and environmental requirements.",
     requirements:
@@ -91,7 +128,9 @@ export const cpdcPermits = [
   },
   {
     id: 12,
+    icon: <GiTrafficLightsGreen />,
     title: "Parking and Traffic Impact Clearance",
+    path: "",
     description:
       "Before certain developments can proceed, the CPDO may issue clearances related to the impact of the project on local traffic and parking. This could involve traffic studies or assessments to ensure that the development will not cause congestion or exceed parking capacity in the area.",
     requirements:
@@ -99,7 +138,9 @@ export const cpdcPermits = [
   },
   {
     id: 13,
+    icon: <FaLaptopHouse />,
     title: "Housing and Resettlement Project Permits",
+    path: "",
     description:
       "For public or private housing projects, especially those that involve the relocation of informal settlers, the CPDO processes permits and clearances to ensure the development adheres to planning laws and social welfare regulations.",
     requirements:
@@ -107,7 +148,9 @@ export const cpdcPermits = [
   },
   {
     id: 14,
+    icon: <MdOutlineTour />,
     title: "Tourism Development Clearance",
+    path: "",
     description:
       "For projects related to tourism, such as hotels, resorts, or other tourism facilities, the CPDO may process permits to ensure the development is consistent with the city's tourism development plan and zoning regulations.",
     requirements:

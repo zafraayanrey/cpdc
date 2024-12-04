@@ -3,6 +3,7 @@ import Slider from "../header/Slider";
 import { Heading } from "../styled-components/elements";
 import styled from "styled-components";
 import { cpdcPermits } from "../utils/cpdcPermits";
+import { Link, NavLink } from "react-router";
 
 const HomeContainer = styled.div`
   display: grid;
@@ -13,23 +14,40 @@ const HomeContainer = styled.div`
   margin: auto;
   padding-top: 30px;
   gap: 10px;
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 const Cards = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
   width: 220px;
   height: 200px;
   background-color: var(--two-hundred);
   border-radius: 10px;
   place-content: center;
-  padding: 10px;
-  font-size: large;
+  padding: 40px;
+  font-size: small;
   color: var(--nine-hundred-fifty);
   font-weight: 400;
+  transition: transform 1s;
+
+  svg {
+    align-self: center;
+    margin: auto;
+    font-size: 50px;
+    color: black;
+  }
 
   &:hover {
-    background-color: var(--fifty);
+    transition: transform 0.7s;
+    background-color: var(--four-hundred);
     cursor: pointer;
-    color: var(--eight-hundred);
+    color: var(--nine-hundred-fifty);
+    transform: scale(1.1);
   }
 `;
 
@@ -39,8 +57,13 @@ function Home() {
       <Slider />
       <Heading>Start Here!</Heading>
       <HomeContainer>
-        {cpdcPermits.map((el) => (
-          <Cards>{el.title}</Cards>
+        {cpdcPermits.map((el, i) => (
+          <NavLink key={i} to={el.path}>
+            <Cards>
+              {el.icon}
+              {el.title}
+            </Cards>
+          </NavLink>
         ))}
       </HomeContainer>
     </>

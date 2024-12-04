@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GrNext, GrPrevious } from "react-icons/gr";
+import { Heading } from "../styled-components/elements";
 
 const SliderWrapper = styled.div`
   height: 500px;
@@ -15,6 +16,7 @@ const InnerWrapper = styled.div`
   height: 100%;
   display: flex;
   width: auto;
+  position: relative;
   transition: transform 1s ease-in-out; //put transfition effect in the slider
 `;
 
@@ -63,6 +65,15 @@ const Next = styled.div`
   }
 `;
 
+const Infographics = styled.div`
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  width: 400px;
+  height: 300px;
+  background-color: var(--fifty);
+`;
+
 function Slider() {
   // Dynamically import all .jpg and .png images from a directory
   const images = import.meta.glob("../images/sliders/*.{jpg,png,jpeg,svg}", {
@@ -100,15 +111,23 @@ function Slider() {
         <GrPrevious />
       </Previous>
 
-      <InnerWrapper style={{ transform: `translateX(-${moveSlider * 100}%)` }}>
-        {imagePaths.length > 0 ? (
-          imagePaths.map((image, index) => (
-            <SliderImage key={index} src={image} alt={`Image ${index}`} />
-          ))
-        ) : (
-          <p>No images found</p>
-        )}
-      </InnerWrapper>
+      <>
+        <InnerWrapper
+          style={{ transform: `translateX(-${moveSlider * 100}%)` }}
+        >
+          {imagePaths.length > 0 ? (
+            imagePaths.map((image, index) => (
+              <>
+                <SliderImage key={index} src={image} alt={`Image ${index}`} />
+                <Infographics>Zaf</Infographics>
+              </>
+            ))
+          ) : (
+            <p>No images found</p>
+          )}
+        </InnerWrapper>
+      </>
+
       <Next onClick={handleNext}>
         <GrNext />
       </Next>
