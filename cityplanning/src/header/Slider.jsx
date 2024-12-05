@@ -15,7 +15,7 @@ const SliderWrapper = styled.div`
 const InnerWrapper = styled.div`
   height: 100%;
   display: flex;
-  width: auto;
+  width: 100%;
   position: relative;
   transition: transform 1s ease-in-out; //put transfition effect in the slider
 `;
@@ -64,13 +64,29 @@ const Next = styled.div`
     color: var(--nine-hundred-fifty);
   }
 `;
+const InfographicsContainer = styled.div`
+  position: absolute;
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+  /* padding: 100px; */
+  opacity: 0.9;
+  place-content: center;
+`;
 
 const Infographics = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 5fr;
   position: absolute;
-  top: 25%;
-  left: 10%;
+  top: 20%;
+  left: 1200px;
+  padding: 20px;
   width: 400px;
   height: 300px;
+  font-weight: 400;
+  border-radius: 10px;
   background-color: var(--fifty);
 `;
 
@@ -118,8 +134,13 @@ function Slider() {
           {imagePaths.length > 0 ? (
             imagePaths.map((image, index) => (
               <>
+                <InfographicsContainer>
+                  <Infographics>
+                    <div>{image}</div>
+                    <div>zaf</div>
+                  </Infographics>
+                </InfographicsContainer>
                 <SliderImage key={index} src={image} alt={`Image ${index}`} />
-                <Infographics>Zaf</Infographics>
               </>
             ))
           ) : (
