@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { Heading } from "../styled-components/elements";
+import ReadMore from "../styled-components/readMore";
+import "../animation.css";
 
 const SliderWrapper = styled.div`
   height: 500px;
@@ -10,6 +12,7 @@ const SliderWrapper = styled.div`
   position: relative;
   z-index: 0;
   overflow-x: hidden;
+  background-color: green;
 `;
 
 const InnerWrapper = styled.div`
@@ -65,29 +68,70 @@ const Next = styled.div`
   }
 `;
 const InfographicsContainer = styled.div`
-  position: absolute;
+  /* position: absolute; */
   position: relative;
-
+  bottom: 30%;
+  left: 60%;
   width: 100%;
   height: 100%;
-  background-color: orange;
   /* padding: 100px; */
-  opacity: 0.9;
+  opacity: 0.8;
   place-content: center;
+
+  /* animation-name: slideInLeft;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none; */
+
+  transition: ease-in all 0.5s;
+
+  &:hover {
+    transform: translateY(-10px);
+    opacity: 1;
+    /* rotate: 50% 180deg; */
+    /* opacity: 1; */
+  }
 `;
 
 const Infographics = styled.div`
   display: grid;
   grid-template-rows: 1fr 5fr;
+  gap: 10px;
   position: absolute;
-  top: 20%;
-  left: 1200px;
+  /* top: 20%;
+  left: 100%; */
   padding: 20px;
   width: 400px;
   height: 300px;
   font-weight: 400;
   border-radius: 10px;
-  background-color: var(--fifty);
+  background-color: var(--eight-hundred);
+`;
+
+const InfoGraphHeading = styled.div`
+  color: var(--nine-hundred-fifty);
+  margin: auto;
+  background-color: #dfdfdf;
+  width: 350px;
+  height: 50px;
+  font-size: x-large;
+  place-content: center;
+  background-color: var(--three-hundred);
+`;
+
+const HeadingSub = styled.div`
+  color: var(--nine-hundred-fifty);
+  display: grid;
+  margin: auto;
+  height: 130px;
+  width: 350px;
+  padding: 15px;
+  font-size: small;
+  background-color: var(--three-hundred);
+  text-align: justify;
 `;
 
 function Slider() {
@@ -100,6 +144,7 @@ function Slider() {
   const imagePaths = Object.values(images).map((module) => module.default); // Access the default export URL
 
   const [moveSlider, setMoveSlider] = useState(0);
+  const [animation, setAnimation] = useState(0);
 
   function handlePrevious() {
     if (moveSlider < 1) return;
@@ -136,8 +181,14 @@ function Slider() {
               <>
                 <InfographicsContainer>
                   <Infographics>
-                    <div>{image}</div>
-                    <div>zaf</div>
+                    <InfoGraphHeading>{image}</InfoGraphHeading>
+                    <HeadingSub>
+                      The quick brown fox jumps over the lazy dog. The quick
+                      brown fox jumps over the lazy dog.The quick brown fox
+                      jumps over the lazy dog.The quick brown fox jumps over the
+                      lazy dog.The quick brown fox jumps over the lazy dog.
+                    </HeadingSub>
+                    <ReadMore>Read More</ReadMore>
                   </Infographics>
                 </InfographicsContainer>
                 <SliderImage key={index} src={image} alt={`Image ${index}`} />
