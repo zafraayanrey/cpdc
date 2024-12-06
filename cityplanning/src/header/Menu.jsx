@@ -129,17 +129,16 @@ function Menu() {
             {el.id === menuId && el.dropdown.length > 0 && (
               <SubItem visibility={isHidden} onMouseLeave={handleMouseLeave}>
                 {dropDown.map((el, i) => (
-                  <DropDown
-                    key={i}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      // handleDropdownClick(el.path);
-                    }}
-                  >
-                    <Link to={el.path}>
+                  <Link key={i} to={el.path}>
+                    <DropDown
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // handleDropdownClick(el.path);
+                      }}
+                    >
                       <div>{el.title}</div>
-                    </Link>
-                  </DropDown>
+                    </DropDown>
+                  </Link>
                 ))}
               </SubItem>
             )}

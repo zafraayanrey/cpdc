@@ -1,0 +1,80 @@
+export const CitizenItems = [
+  {
+    id: 1,
+    title: "Zoning Certification",
+    path: "",
+    file: "",
+  },
+  {
+    id: 2,
+    title: "PD 957 PSDF",
+    path: "",
+    file: "",
+  },
+  {
+    id: 3,
+    title: "Reclamation and Development Permit Plan",
+    path: "",
+    file: "",
+  },
+  {
+    id: 4,
+    title: "Simple Subdivision Project",
+    path: "",
+    file: "",
+  },
+  {
+    id: 5,
+    title: "DPBP 220 Subdivision",
+    path: "",
+    file: "",
+  },
+  {
+    id: 6,
+    title: "Alteration Plan",
+    path: "",
+    file: "",
+  },
+  {
+    id: 7,
+    title: "BP 220 PSDF",
+    path: "",
+    file: "",
+  },
+  {
+    id: 8,
+    title: "DPPD 957 Subdivision",
+    path: "",
+    file: "",
+  },
+  {
+    id: 9,
+    title: "BP 220 PALC of Projects",
+    path: "",
+    file: "",
+  },
+  {
+    id: 10,
+    title: "Fencing Permit Locational Clearance",
+    path: "",
+    file: "",
+  },
+  {
+    id: 11,
+    title: "Hard Copies",
+    path: "",
+    file: "",
+  },
+  {
+    id: 12,
+    title: "Building Permit Conforming Locational Clearance",
+    path: "",
+    file: "",
+  },
+  {
+    id: 13,
+    title: "Building Permit Non-Conforming Locational Clearance",
+    path: "",
+    file: "",
+  },
+];

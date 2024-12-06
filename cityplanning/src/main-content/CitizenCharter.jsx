@@ -2,33 +2,76 @@ import React from "react";
 import { Heading } from "../styled-components/elements";
 import styled from "styled-components";
 import citizenCharter from "../images/citizen-charter/citizenCharter.png";
+import { CitizenItems } from "../utils/cpdcCitizenCharter";
+import cityhall from "../images/cityhall.jpg";
 
 const CitizenWrapper = styled.div`
-  width: 80%;
+  width: 100%;
   height: 100%;
 
   margin: auto;
   display: grid;
-  padding: 0px 50px 0px 50px;
+  /* padding: 0px 50px 0px 50px; */
   grid-template-rows: 0.1fr 1fr 1fr;
 `;
 
 const CitizenContent = styled.div`
+  padding-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: var(--fifty);
+  gap: 10px;
+  grid-template-columns: 1fr 2fr 4fr 1fr;
+  width: 80%;
+  margin: auto;
+  /* background-color: var(--fifty); */
 
   img {
-    width: 60%;
+    width: 100%;
     margin: auto;
-    margin-left: 150px;
   }
 `;
 
+const ImageContainer = styled.div`
+  grid-column: 2/3;
+  padding: 5px;
+`;
+
 const CitizenDescription = styled.div`
-  /* background-color: orange; */
-  padding: 30px 30px 30px 0px;
+  background-color: var(--two-hundred);
   text-align: justify;
+  padding: 30px;
+  height: auto;
+`;
+
+const CItemContainer = styled.div`
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  width: 80%;
+  margin: auto;
+`;
+
+const CItems = styled.div`
+  font-weight: 400;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  background-color: var(--two-hundred);
+  margin: auto;
+  place-content: center;
+  transition: background-color ease-in 0.5s, border ease-in 0.5s;
+
+  &:hover {
+    background-color: orange;
+    border: solid 10px green;
+    /* border: 2px solid var(--eight-hundred); */
+    cursor: pointer;
+  }
+`;
+
+const CityHall = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 function CitizenCharter() {
@@ -36,7 +79,9 @@ function CitizenCharter() {
     <CitizenWrapper>
       <Heading>Citizen's Charter</Heading>
       <CitizenContent>
-        <img src={citizenCharter}></img>
+        <ImageContainer>
+          <img src={citizenCharter}></img>
+        </ImageContainer>
         <CitizenDescription>
           The Citizen’s Charter is a document that outlines the procedures,
           requirements, fees, and processing times for government services in
@@ -62,6 +107,17 @@ function CitizenCharter() {
           delays, and promotes accountability within government operations.
         </CitizenDescription>
       </CitizenContent>
+      <div>
+        <Heading>CPDO - CITIZEN’S CHARTER</Heading>
+        <CItemContainer>
+          {CitizenItems.map((el, i) => (
+            <CItems key={i}>{el.title}</CItems>
+          ))}
+        </CItemContainer>
+      </div>
+      <div style={{ padding: "0" }}>
+        <CityHall src={cityhall}></CityHall>
+      </div>
     </CitizenWrapper>
   );
 }
