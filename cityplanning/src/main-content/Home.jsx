@@ -26,20 +26,20 @@ const Cards = styled.div`
   gap: 20px;
   width: 220px;
   height: 200px;
-  background-color: var(--two-hundred);
+  background-color: var(--six-hundred);
   border-radius: 10px;
   place-content: center;
   padding: 40px;
   font-size: small;
   color: var(--nine-hundred-fifty);
-  font-weight: 400;
+  font-weight: 600;
   transition: transform 1s;
 
   svg {
     align-self: center;
     margin: auto;
     font-size: 50px;
-    color: black;
+    color: var(--fifty);
   }
 
   &:hover {

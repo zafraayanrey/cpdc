@@ -44,6 +44,7 @@ const CitizenDescription = styled.div`
 
 const CItemContainer = styled.div`
   padding-top: 20px;
+  padding-bottom: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
@@ -62,8 +63,8 @@ const CItems = styled.div`
   transition: background-color ease-in 0.5s, border ease-in 0.5s;
 
   &:hover {
-    background-color: orange;
-    border: solid 10px green;
+    background-color: var(--four-hundred);
+    /* border: solid 10px green; */
     /* border: 2px solid var(--eight-hundred); */
     cursor: pointer;
   }

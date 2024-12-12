@@ -10,10 +10,12 @@ import { navMenu } from "../utils/navMenu.jsx";
 import { Link, NavLink } from "react-router";
 
 const HeaderContainer = styled.div`
+  position: fixed;
   background-color: var(--two-hundred);
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 8fr 0.5fr;
+  z-index: 201;
 `;
 
 const LogoContainer = styled.div`
@@ -23,7 +25,7 @@ const LogoContainer = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 40px;
+  width: 60px;
   place-content: center;
 `;
 
