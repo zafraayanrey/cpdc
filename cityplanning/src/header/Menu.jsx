@@ -35,6 +35,10 @@ const MenuItem = styled.li`
   &:hover {
     background-color: var(--four-hundred);
   }
+
+  &:active {
+    background-color: var(--four-hundred);
+  }
 `;
 
 const SubItem = styled.div`
